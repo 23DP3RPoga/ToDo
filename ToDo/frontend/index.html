@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do Saraksts</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .task { border-bottom: 1px solid #ccc; padding: 10px; }
+  </style>
+</head>
+<body>
+  <h1>To-Do Saraksts</h1>
+  <form id="taskForm">
+    <input type="text" id="title" placeholder="Nosaukums" required />
+    <input type="text" id="description" placeholder="Apraksts" required />
+    <button type="submit">Pievienot</button>
+  </form>
+  <div id="taskList"></div>
+
+  <script>
+    const form = document.getElementById('taskForm');
+    const taskList = document.getElementById('taskList');
+
+    async function fetchTasks() {
+      const res = await fetch('http://localhost:3000/tasks');
+      const tasks = await res.json();
+      taskList.innerHTML = tasks.map(task => `
+        <div class="task">
+          <strong>${task.title}</strong> – ${task.description} – <em>${task.status}</em>
+          <button onclick="deleteTask('${task._id}')">Dzēst</button>
+        </div>
+      `).join('');
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const title = document.getElementById('title').value;
+      const description = document.getElementById('description').value;
+
+      await fetch('http://localhost:3000/tasks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, description })
+      });
+
+      form.reset();
+      fetchTasks();
+    });
+
+    async function deleteTask(id) {
+      await fetch(`http://localhost:3000/tasks/${id}`, { method: 'DELETE' });
+      fetchTasks();
+    }
+
+    fetchTasks();
+  </script>
+</body>
+</html>
