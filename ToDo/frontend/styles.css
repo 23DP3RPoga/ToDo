@@ -1,0 +1,22 @@
+
+body{
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+
+}
+#body{
+    align-items: center;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+}
+#taskForm{
+    padding-top: 20vh;
+    padding-bottom: 5vh;
+
+}
+#taskList{
+    background-color: antiquewhite;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "npm init -y\r npm install express mongoose body-parser cors\r mkdir -p backend/models backend/routes frontend\r touch backend/server.js backend/models/Task.js backend/routes/tasks.js frontend/index.html",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/23DP3RPoga/ToDo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/23DP3RPoga/ToDo/issues"
+  },
+  "homepage": "https://github.com/23DP3RPoga/ToDo#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mongoose": "^8.14.3"
+  }
+}
