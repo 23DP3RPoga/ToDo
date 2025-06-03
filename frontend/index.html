@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Tasks</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="todoApp">
+    <h1>My Tasks</h1>
+    <form id="addTaskForm">
+      <input type="text" id="title" placeholder="Title" required />
+      <input type="text" id="description" placeholder="Description" />
+      <select id="choices">
+        <option value="Not Completed">Not completed</option>
+        <option value="Completed">Completed</option>
+      </select>
+      <button type="submit">Add</button>
+    </form>
+        <button id="logoutBtn">Log Out</button>
+    <div id="taskList">
+
+    </div>
+  </div>
+
+  <script src="todo.js"></script>
+</body>
+</html>
